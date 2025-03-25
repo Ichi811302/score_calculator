@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>スコア入力フォーム</title>
+  <link rel="stylesheet" href="score.css">
+  <script src="ctl.js" defer></script>
+</head>
+
+<body>
+  <h1>スコア入力</h1>
+  <div id="players-container"></div>
+  <button class="button-large" onclick="calculateAndStore()">決定</button>
+<button class="button-large" onclick="window.location.href='score.html'">戻る</button>
+
+  <script>
+    // プレイヤー数に応じたフォームを動的に生成
+    window.onload = function () {
+      const playerCount = localStorage.getItem('playerCount'); // 選択された人数
+      const container = document.getElementById('players-container');
+
+      for (let i = 1; i <= playerCount; i++) {
+        const form = `
+          <div class="player-card">
+           <div class="player-header">
+            <h2>${i} 人目</h2> <!-- 👈 確実に一番上に配置 -->
+           </div>
+
+           <div class="player-content">
+            <div class="form-group">
+              <label for="perfect${i}">Perfect:</label>
+              <input type="number" id="perfect${i}" value="0">
+            </div>
+            <div class="form-group">
+              <label for="great${i}">Great:</label>
+              <input type="number" id="great${i}" value="0">
+            </div>
+            <div class="form-group">
+             <label for="good${i}">Good:</label>
+             <input type="number" id="good${i}" value="0">
+            </div>
+           </div>
+         </div>`;
+        container.insertAdjacentHTML('beforeend', form);
+      }
+    };
+
+
+    window.onload = function() {
+    let players = JSON.parse(localStorage.getItem('players')) || [];
+
+    players.forEach((player, index) => {
+        let nameInput = document.getElementById(`name${index + 1}`); // idのズレを考慮
+        if (nameInput) {
+            nameInput.value = player.name || ""; // もし名前がなかったら空白に
+        }
+    });
+};
+</script>
+</body>
+
+</html>

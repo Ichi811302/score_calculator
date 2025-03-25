@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+ <meta charset="UTF-8">
+ <title>score calculator</title>
+ <link rel="stylesheet" href="score.css">
+ <script src="ctl.js" defer></script>
+</head>
+
+<body>
+ <div align="center">
+ <h1>内戦</h1>
+
+ <p>何人のスコアを計算する？</p>
+ <form onsubmit="navigate(); return false;">
+ <select name="member_num">
+  <option value="1">1人</option>
+  <option value="2">2人</option>
+  <option value="3">3人</option>
+  <option value="4">4人</option>
+  <option value="5">5人</option>
+ </select>
+ <br><br>
+ <button class="button-large" type="submit">決定</button>
+ </form>
+ </div>
+ 
+</body>
+</html>

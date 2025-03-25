@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>結果</title>
+    <link rel="stylesheet" href="score.css">
+    <script src="ctl.js" defer></script>
+</head>
+<body>
+    <h1>結果</h1>
+    <div id="results-container"></div>
+
+    <!-- 続けて入力ボタン -->
+    <button class="button-large" onclick="continueInput()">続けて入力</button>
+
+    <!-- Discordに送信ボタン -->
+    <button class="button-large" onclick="sendToDiscord()">Discordに送信</button>
+
+    <!-- スコア初期化ボタン -->
+    <button class="button-large" onclick="resetScores()">スコアをリセット</button>
+    
+    <!-- ホームに戻るボタン -->
+    <button class="button-large" onclick="window.location.href='score.html'">ホームへ戻る</button>
+    
+
+    <script>
+        function resetScores() {
+            localStorage.removeItem('players'); // 🎯 スコアを削除
+            alert("スコアがリセットされました！"); // 確認アラート
+            location.reload(); // ページをリロードしてリフレッシュ
+        }
+    </script>
+</body>
+</html>
