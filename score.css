@@ -64,6 +64,11 @@ button{
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:active {
+  transform: scale(0.9);
 }
 
 button:hover{
